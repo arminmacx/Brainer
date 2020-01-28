@@ -20,8 +20,12 @@ def cals(ethash, zhash, cnheavy, cngpu, cryptonightR, cnfast, aion, cuckoocycle,
         print(coinNameDict)
         with open('coinRevenueManualMode.json', 'w') as f:
              json.dump(coinNameDict, f , indent=2)
-    first2pairs = {k: coinNameDict[k] for k in list(coinNameDict.keys())[:5]}    
-    print(first2pairs)
+
+    # Getting first 5 high revenue coin from sorted dictionary
+    topFiveCoin = {k: coinNameDict[k] for k in list(coinNameDict.keys())[:5]}    
+    with open('topFiveCoinManual.json', 'w') as f:
+        json.dump(topFiveCoin, f, indent=2)
+    
     if coin > coin2:
         koin = coin
         print('zcoin is valuable with ', koin)
@@ -85,7 +89,7 @@ def autoCalAMD(aGpu, numGpu):
             autoDict[factorkey] = float(value_480)
             with open('480AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
-            print(value_380)
+            print(value_480)
         elif aGpu == '570':
             a570 = float(numGpu)
             value_570 = a570 * factors_570[factorkey]
@@ -133,4 +137,9 @@ def autoCalAMD(aGpu, numGpu):
         with open('coinRevenueAutoMode.json', 'w') as f:
              json.dump(coinNameDict, f , indent=2)
     coin = pkg_json['coins']['Zcoin']['btc_revenue24']
+
+    # Getting first 5 high revenue coin from sorted dictionary
+    topFiveCoin = {k: coinNameDict[k] for k in list(coinNameDict.keys())[:5]}
+    with open('topFiveCoinAuto.json', 'w') as f:
+        json.dump(topFiveCoin, f, indent=2)
     return coin
