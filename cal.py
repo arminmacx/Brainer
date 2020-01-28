@@ -20,7 +20,8 @@ def cals(ethash, zhash, cnheavy, cngpu, cryptonightR, cnfast, aion, cuckoocycle,
         print(coinNameDict)
         with open('coinRevenueManualMode.json', 'w') as f:
              json.dump(coinNameDict, f , indent=2)
-
+    first2pairs = {k: coinNameDict[k] for k in list(coinNameDict.keys())[:5]}    
+    print(first2pairs)
     if coin > coin2:
         koin = coin
         print('zcoin is valuable with ', koin)
@@ -67,56 +68,56 @@ def autoCalAMD(aGpu, numGpu):
         elif aGpu == 'Fury':
             aFury = float(numGpu)
             value_Fury = aFury * factors_fury[factorkey]
-            autoDict[factorkey] = value_Fury
+            autoDict[factorkey] = float(value_Fury)
             with open('FuryAMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_Fury)
         elif aGpu == '470':
             a470 = float(numGpu)
             value_470 = a470 * factors_470[factorkey]
-            autoDict[factorkey] = value_470
+            autoDict[factorkey] = float(value_470)
             with open('470AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_470)
         elif aGpu == '480':
             a480 = float(numGpu)
             value_480 = a480 * factors_480[factorkey]
-            autoDict[factorkey] = value_480
+            autoDict[factorkey] = float(value_480)
             with open('480AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_380)
         elif aGpu == '570':
             a570 = float(numGpu)
             value_570 = a570 * factors_570[factorkey]
-            autoDict[factorkey] = value_570
+            autoDict[factorkey] = float(value_570)
             with open('570AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_570)
         elif aGpu == '580':
             a580 = float(numGpu)
             value_580 = a580 * factors_580[factorkey]
-            autoDict[factorkey] = value_580
+            autoDict[factorkey] = float(value_580)
             with open('580AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_580)
         elif aGpu == 'Vega56':
             aVega56 = float(numGpu)
             value_vega56 = aVega56 * factors_vega56[factorkey]
-            autoDict[factorkey] = value_vega56
+            autoDict[factorkey] = float(value_vega56)
             with open('Vega56AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_vega56)
         elif aGpu == 'Vega64':
             aVega64 = float(numGpu)
             value_vega64 = aVega64 * factors_vega64[factorkey]
-            autoDict[factorkey] = value_vega64
+            autoDict[factorkey] = float(value_vega64)
             with open('Vega64AMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_vega64)
         elif aGpu == 'VII':
             aVII = float(numGpu)
             value_vii = aVII * factors_vii[factorkey]
-            autoDict[factorkey] = value_vii
+            autoDict[factorkey] = float(value_vii)
             with open('VIIAMDRevenueAutoMode.json', 'w') as f:
                 json.dump(autoDict, f, indent=2)
             print(value_vii)
