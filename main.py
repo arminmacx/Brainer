@@ -1,8 +1,6 @@
-import bs4
 import requests
-from bs4 import BeautifulSoup
 import json
-from cal import cals, autoCalAMD
+from cal import cals, autoCalAMD, autoCalNvidia
 
 aGpu = ''
 nGpu = ''
@@ -83,6 +81,7 @@ while valueBool :
     elif GPU in 'BbCcDdEeFfGgHhIiJjKkLlMmOoPpQqWwRrTtYyUuSsZzXxCcVv':
         print('You need to input correct value , Please try again\n')
         valueBool = True
+        
 hashValue = input('Do you want Brainer automatically set your hashrate based on your GPUs or you want to put them manually Y/N: ')
 if hashValue in 'Nn':
    print('Please wait ......\n')
@@ -110,10 +109,18 @@ if hashValue in 'Nn':
    x25x = input('Whats is you X25X hashrate: ')
    mtp = input('Whats is you MTP hashrate: ')
    lyra2rev3 = input('Whats is you Lyra2REv3 hashrate: ')
-   coinValue = cals(ethash,zhash,cnheavy,cngpu,cryptonightR,cnfast,aion,cuckoocycle,cuckaroo29,cuckaroom29,cuckatoo31,beam,randomx,neoscrypt,timetravel10,x16rv2,phi2,equihashzero,zelhash,progpow,x25x,mtp,lyra2rev3)
+
+   # Saving manually inputed hashrate by user for later comparison
+   lastManualHash = {'ethash': ethash, 'zhash': zhash, 'cnheavy': cnheavy, 'cngpu': cngpu, 'cryptonightR': cryptonightR, 'cnfast': cnfast, 'aion': aion, 'cuckoocycle': cuckoocycle, 'cuckaroo29': cuckaroo29, 'cuckaroom29': cuckaroom29, 'cuckatoo31': cuckatoo31, 'beam': beam, 'randomx': randomx, 'neoscrypt': neoscrypt, 'timetravel10': timetravel10, 'x16rv2': x16rv2, 'phi2': phi2, 'equihashzero': equihashzero, 'zelhash': zelhash, 'progpow': progpow, 'x25x': x25x, 'mtp': mtp, 'lyra2rev3': lyra2rev3}
+   
+   coinValue = cals(ethash,zhash,cnheavy,cngpu,cryptonightR,cnfast,aion,cuckoocycle,cuckaroo29,cuckaroom29,cuckatoo31,beam,randomx,neoscrypt,
+   timetravel10,x16rv2,phi2,equihashzero,zelhash,progpow,x25x,mtp,lyra2rev3)
 elif hashValue in 'Yy':
     print('Please wait ......\n')
-    coinValue = autoCalAMD(aGpu, numGpu)
+    if adopt_gpu == 'amd':
+        coinValue = autoCalAMD(aGpu, numGpu)
+    else:
+        coinValue = autoCalNvidia(nGpu, numGpu)
 #coinValue = cals(ethash,zhash,cnheavy,cngpu,cryptonightR,cnfast,aion,cuckoocycle,cuckaroo29,cuckaroom29,cuckatoo31,beam,randomx,neoscrypt,timetravel10,x16rv2,phi2,equihashzero,zelhash,progpow,x25x,mtp,lyra2rev3)
 
 # print(coinValue)
