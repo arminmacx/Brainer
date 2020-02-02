@@ -6,7 +6,6 @@ aGpu = ''
 nGpu = ''
 adopt_gpu = ''
 valueBool = True
-first_run = True
 ethash = zhash = cnheavy = cngpu = cryptonightR = cnfast = aion = cuckoocycle = cuckaroo29 = cuckaroom29 = cuckatoo31 = beam = randomx = neoscrypt = timetravel10 = x16rv2 = phi2 = equihashzero = zelhash = progpow = x25x = lyra2rev3 = '0'
 
 print("""
@@ -26,6 +25,7 @@ print("""
   B:::::::::::::::::B  r:::::r          a:::::aaaa::::::a i::::::i n::::n    n::::n e::::::::eeeeeeee   r:::::r            
   B::::::::::::::::B   r:::::r           a::::::::::aa:::ai::::::i n::::n    n::::n  ee:::::::::::::e   r:::::r            
   BBBBBBBBBBBBBBBBB    rrrrrrr            aaaaaaaaaa  aaaaiiiiiiii nnnnnn    nnnnnn    eeeeeeeeeeeeee   rrrrrrr""")
+  
 # Check if app runs for first time or not
 with open('run.txt', 'r') as f:
     d = f.read()
